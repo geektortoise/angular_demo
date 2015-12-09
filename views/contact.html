@@ -1,0 +1,21 @@
+<h2> Join us </h2>
+<div ng-controller="contactCtrl" class="col-md-8">
+	<form name="contactForm" novalidate ng-submit="addUser(newUser)">
+		<div class="well">
+			<div class="form-group">
+				<label>Name:</label>
+				<input name="userName" type="text" class="form-control" required ng-model="newUser.name">
+				<label>Society:</label>
+				<input name="userSociety" type="text" class="form-control" ng-model="newUser.society">
+				<label>Email:</label>
+				<input name="userEmail" type="email" class="form-control" required ng-model="newUser.email">
+				<div class="error" ng-show="contactForm.$invalid">
+					<span ng-if="contactForm.userName.$dirty && contactForm.userName.$error.required">Please enter a name</span><br/>
+					<span ng-if="contactForm.userEmail.$dirty && contactForm.userEmail.$error.email">Please enter a valid email address</span><br/>
+					<span ng-if="contactForm.userEmail.$dirty && contactForm.userEmail.$error.required">Please enter an email</span>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary btn-block" ng-disabled="contactForm.$invalid">OK</button>
+		</div>
+	</form>
+

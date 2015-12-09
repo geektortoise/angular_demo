@@ -1,0 +1,65 @@
+<div ng-controller="eventsCtrl">
+<div class="row">
+	<div class="col-md-8">
+		<h2>Events</h2>
+		<h3>Futur</h3>
+
+		<div>
+			<table class="table">
+				<thead>
+				<tr>
+					<th>Name</th>
+					<th>Date</th>
+					<th class="text-right">Speaker</th>
+					<th class="text-right">Présent ?</th>
+				</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="event in data.events | after:now">
+						<td class="text-left">{{event.name}}</td>
+						<td>{{event.date | date}}</td>
+						<td class="text-right">{{event.speaker}}</td>
+						<td class="text-right">
+							<input type="checkbox" ng-model="event.inscrit">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-8">
+		Show past events <input type="checkbox" ng-model="showPast">
+	</div>
+
+	<div class="col-md-8" ng-show="showPast">
+		<h3>Past</h3>
+
+		<div>
+			<table class="table">
+				<thead>
+				<tr>
+					<th>Name</th>
+					<th>Date</th>
+					<th class="text-right">Speaker</th>
+					<th class="text-right">Présent ?</th>
+				</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="event in data.events">
+						<td class="text-left">{{event.name}}</td>
+						<td>{{event.date | date}}</td>
+						<td class="text-right">{{event.speaker}}</td>
+						<td class="text-right">
+							<input type="checkbox" ng-model="event.inscrit">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+
+</div>
+</div>

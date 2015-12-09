@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="GeekAnonymes">
+<head>
+	<title>Geek Anonymes</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script src="angular.js"></script>
+	<link href="bootstrap.css" rel="stylesheet" />
+	<link href="bootstrap-theme.css" rel="stylesheet" />
+	<style>
+		.navbar-right { float: right !important; margin-right: 250px;}
+		.hipster {
+		    display: inline-block;
+		    width: 347px;
+		    height: 497px;
+		    background: url("https://raw.githubusercontent.com/jhipster/jhipster-sample-app/master/src/main/webapp/assets/images/hipster.png") no-repeat center top;
+		    background-size: contain;
+		}
+		div.error {color: red; font-weight: bold;}
+		form .ng-invalid-required.ng-dirty { background-color: lightpink; }
+		form .ng-invalid-email.ng-dirty { background-color: lightgoldenrodyellow; }
+		form .ng-valid.ng-dirty { background-color: lightgreen; }
+	</style>
+	<script>
+	angular.module("GeekAnonymes", ["ngRoute"])
+	.config(function ($routeProvider) {
+		$routeProvider.when("/contact", {
+			templateUrl: "views/contact.html"
+		});
+
+		$routeProvider.when("/speakers", {
+			templateUrl: "views/speakers.html"
+		});
+ 
+		$routeProvider.when("/events", {
+			templateUrl: "views/events.html"
+		});
+ 
+		$routeProvider.otherwise({
+			templateUrl: "views/home.html"
+		});
+	});
+	</script>
+	<script src="controllers/eventControllers.js"></script>
+	<script src="controllers/contactControllers.js"></script>
+	<script src="ngmodules/angular-route.js"></script>
+</head>
+<body>
+	<div class="navbar navbar-inverse">
+		<a class="navbar-brand" href="#">GEEKS ANONYMES</a>
+		<div class="navbar-right">
+			<a class="navbar-brand" href="#">Home</a>
+			<a class="navbar-brand" href="#/events">Events</a>
+			<a class="navbar-brand" href="#/speakers">Speakers</a>
+			<a class="navbar-brand" href="#/contact">Contact</a>
+		</div>
+
+	</div>
+
+ 	<ng-view />
+</body>
+</html>
